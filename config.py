@@ -1,0 +1,3 @@
+MONGO_URI = 'localhost'
+MONGO_DB = 'TOUTIAO'
+MONGO_TABLE = 'LANQIU'
