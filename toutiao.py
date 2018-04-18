@@ -30,7 +30,7 @@ class Toutiao(object):
             'cur_tab': 3,
             'from': 'gallery'
         }
-        index_url = 'https://www.123.com/search_content/?'+parse.urlencode(data)
+        index_url = 'https://www.toutiao.com/search_content/?'+parse.urlencode(data)
         html = requests.get(index_url).text
 
         return html
@@ -40,7 +40,7 @@ class Toutiao(object):
         if  'data' in preview.keys():
             for item in preview.get('data'):
                 url=item.get('article_url')
-                if url.find('123')>-1:
+                if url.find('toutiao')>-1:
                     print(url)
                     yield url
 
