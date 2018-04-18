@@ -10,6 +10,7 @@ from config import *
 
 
 
+
 class Toutiao(object):
     def __init__(self,MONGO_URI,MONGO_DB,MONGO_TABLE):
 
@@ -79,8 +80,8 @@ class Toutiao(object):
             }
 
 
-    def save_to_mongo(self,text,MONGO_TABLE):
-        if self.db[MONGO_TABLE].insert(text):
+    def save_to_mongo(self,text):
+        if self.db[self.MONGO_TABLE].insert(text):
             print('存储成功',text)
             return True
         else:
@@ -94,7 +95,7 @@ class Toutiao(object):
             urls = self.parse_index_page(html)
             for url in urls:
                 text = self.parse_detail_page(url)
-                self.save_to_mongo(text,self.MONGO_TABLE)
+                self.save_to_mongo(text)
 
 
 toutiao = Toutiao(MONGO_URI,MONGO_DB,MONGO_TABLE)
